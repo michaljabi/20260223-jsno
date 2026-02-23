@@ -1,13 +1,16 @@
 console.log("Hello stranger... shall we start?");
 
 // PROVIDER
-function giveMeTheNumber() {
+function giveMeTheNumber(passwd = "") {
   // return Promise.resolve(300)
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      // resolve(200);
-      reject(new Error("Not allowed to widraw money"));
-    }, 3000);
+      if (passwd === "abc") {
+        resolve(200);
+      } else {
+        reject(new Error("Not allowed to widraw money"));
+      }
+    }, 1000);
   });
 }
 
@@ -26,7 +29,23 @@ function giveMeTheNumber() {
 // console.log(giveMeTheNumber());
 
 // 1. Classic
-giveMeTheNumber()
+giveMeTheNumber("abc")
+  .then((val) => {
+    // await giveMeTheNumber()
+    console.log(val);
+    return val + 800;
+  })
+  .then((val) => {
+    // await giveMeTheNumber()
+    console.log(val);
+  })
+  .then((val) => {
+    // await giveMeTheNumber()
+    return giveMeTheNumber().catch((err) => {
+      console.log(err.message);
+      return 0
+    });
+  })
   .then((val) => {
     // await giveMeTheNumber()
     console.log(val);
