@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/main.js"
+    "start": "node ./src/main.js",
+    "dev":"node ./src/task_3_1.js"
   },
   "keywords": [],
   "author": "",

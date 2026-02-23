@@ -1,7 +1,7 @@
 import { createInterface } from "node:readline/promises";
 import { stdin, stdout, exit } from "node:process";
 
-// stdout.push("TEST", "utf-8")
+// stdout.write("TEST", 'utf-8')
 
 const rl = createInterface({ input: stdin, output: stdout });
 
