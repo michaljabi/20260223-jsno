@@ -1,0 +1,14 @@
+{
+  "name": "1-run-me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mistery-file.js",
+  "scripts": {
+    "start": "node ./mistery-file.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
