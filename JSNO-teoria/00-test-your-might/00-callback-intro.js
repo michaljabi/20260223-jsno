@@ -21,8 +21,11 @@ function giveMeTheNumber(widrawMoneyAcceptedCallback, passwd = "") {
   // mistery(200);
   setTimeout(() => {
     // throw new Error("Not allowed to widraw the money!");
-    // widrawMoneyAcceptedCallback(null, 300);
-    widrawMoneyAcceptedCallback(new Error("Not allowed to widraw the money!"), null);
+    widrawMoneyAcceptedCallback(null, 300);
+    // widrawMoneyAcceptedCallback(
+    //   new Error("Not allowed to widraw the money!"),
+    //   null,
+    // );
   }, 1000);
 }
 
@@ -34,11 +37,39 @@ function giveMeTheNumber(widrawMoneyAcceptedCallback, passwd = "") {
 // CONSUMER:
 
 giveMeTheNumber((err, val = 0) => {
-  if(err) {
-     console.log(err.message)
-     return;
+  if (err) {
+    console.log(err.message);
+    return;
   }
   console.log(val);
+  giveMeTheNumber((err, val = 0) => {
+    if (err) {
+      console.log(err.message);
+      return;
+    }
+    console.log(val);
+    giveMeTheNumber((err, val = 0) => {
+      if (err) {
+        console.log(err.message);
+        return;
+      }
+      console.log(val);
+      giveMeTheNumber((err, val = 0) => {
+        if (err) {
+          console.log(err.message);
+          return;
+        }
+        console.log(val);
+        giveMeTheNumber((err, val = 0) => {
+          if (err) {
+            console.log(err.message);
+            return;
+          }
+          console.log(val);
+        });
+      });
+    });
+  });
 });
 
 // try {
