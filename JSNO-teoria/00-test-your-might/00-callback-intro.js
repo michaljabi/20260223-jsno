@@ -1,4 +1,4 @@
-// @ts-check
+// // @ts-check
 
 console.log(`Hello 
     stranger... 
@@ -11,14 +11,19 @@ console.log(2 + 2 * 2);
 // function giveMeTheNumber(mistery = (num = 0) => {}) {
 /**
  *
- * @param {Function} mistery
+ * @param {Function} widrawMoneyAcceptedCallback
  */
 // PROVIDER
-function giveMeTheNumber(mistery) {
-  mistery(200);
+function giveMeTheNumber(widrawMoneyAcceptedCallback, passwd = "") {
+  // if (passwd !== "abcd") {
+  //   throw new Error("Not allowed to widraw the money!");
+  // }
+  // mistery(200);
   setTimeout(() => {
-    mistery(100);
-  }, 5000);
+    // throw new Error("Not allowed to widraw the money!");
+    // widrawMoneyAcceptedCallback(null, 300);
+    widrawMoneyAcceptedCallback(new Error("Not allowed to widraw the money!"), null);
+  }, 1000);
 }
 
 /**
@@ -27,14 +32,27 @@ function giveMeTheNumber(mistery) {
  * Poniżej odbierz liczbę 300 i pokaż ją na ekranie:
  * */
 // CONSUMER:
-giveMeTheNumber((val = 0) => {
+
+giveMeTheNumber((err, val = 0) => {
+  if(err) {
+     console.log(err.message)
+     return;
+  }
   console.log(val);
 });
 
+// try {
+//   giveMeTheNumber((val = 0) => {
+//     console.log(val);
+//   });
+// } catch (e) {
+//   console.log(e.message);
+// }
+
 // CONSUMER 2:
-giveMeTheNumber((val = 0) => {
-  console.log(val);
-});
+// giveMeTheNumber((val = 0) => {
+//   console.log(val);
+// });
 
 // try {
 //     giveMeTheNumber();
