@@ -13,4 +13,7 @@ export const server = createServer(async (req, res) => {
 // Do tego potrzeba bibioteki:
 // Handle all other events (not handled)
 // https://www.npmjs.com/package/eventemitter2
-eventBus.on("*", () => {});
+eventBus.on("catch404Error", ({req, res}) => {
+  res.statusCode = 404;
+  res.end(JSON.stringify({ error: "coś poszło nie tak" }));
+});
