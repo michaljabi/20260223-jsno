@@ -10,11 +10,11 @@ Po wystawieniu serwera użyj pliku:
 
 
 ## Wymagania:
-- wykonaj endpoint: `/data` pokazujący zawartość pliku `data.json` - jako typ: `JSON`
+- wykonaj endpoint: `/guests` pokazujący zawartość pliku `data.json` - jako typ: `JSON`
 - każdy inny endpoint powinien pokazywać błąd: `{ "error": "404 - nie znam ścieżki N" }`, gdzie `N` - to faktyczny adres `url` na który wszedł użytkownik
 - zadbaj o poprawny nagłówek `Content-Type` dla odpowiedzi
 - zadbaj o poprawny `kod` odpowiedzi `HTTP` dla zapytania
-  - poprawny kod dla `/data` to `200`
+  - poprawny kod dla `/guests` to `200`
   - poprawny kod dla błędnych zapytań to `404`
 
 ----
