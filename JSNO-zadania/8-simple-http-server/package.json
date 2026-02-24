@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prod": "node --env-file=.env ./src/main.js",
-    "start": "nodemon --env-file=.env ./src/main.js"
+    "start": "nodemon --env-file=.env --env-file-if-exists=.env.local ./src/main.js"
   },
   "keywords": [],
   "author": "",
