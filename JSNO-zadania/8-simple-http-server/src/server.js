@@ -1,5 +1,4 @@
 import { createServer } from "node:http";
-import { questInMemoryDb } from "../db/quest-in-memory-db.js";
 
 // Singleton (JEDNA INSTANCJA SERVERA) na całą aplikacje
 export const server = createServer(async (req, res) => {
@@ -11,7 +10,7 @@ export const server = createServer(async (req, res) => {
       data = await questInMemoryDb.getAll();
     } else if (req.url === "/guests" && req.method === "POST") {
       console.log("MY BODY IS", req.body);
-      let body = '';
+      let body = "";
       // TODO: naprawić w `express.js`
       req.on("data", (chunk) => {
         // console.warn("CHUNK", chunk.toString());

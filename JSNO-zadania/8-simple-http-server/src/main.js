@@ -1,5 +1,5 @@
 import { env } from "node:process";
-import { server } from "./server.js";
+import { server } from "./server-event-driven.js";
 
 
 // starts a simple http server locally on port 3000
