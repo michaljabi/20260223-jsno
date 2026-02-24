@@ -12,7 +12,7 @@ try {
   user.age = Number(await rl.question("Podaj wiek: ")) || 0;
   console.log("Pobrane dane", user);
 } catch (e) {
-  console.error('\nBłąd:', e.message);
+  console.error("\nBłąd:", e.message);
 } finally {
   rl.close();
   exit(0);
