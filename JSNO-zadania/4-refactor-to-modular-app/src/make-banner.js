@@ -23,7 +23,8 @@ ${border}`;
 
 export function sentenceToBanners(sentence = '') {
   for (const word of sentence.split(' ')) {
-    console.log(makeBanner(word));
+    // console.log(makeBanner({ word: word }));
+    console.log(makeBanner({ word }));
   }
 }
 
@@ -31,7 +32,7 @@ export function sentenceToBanners(sentence = '') {
 // Object property shorthand (to samo co wyżej):
 // https://attacomsian.com/blog/javascript-object-property-shorthand
 const myObj = { BORDER_DECORATOR, makeBanner };
-console.log(myObj);
+// console.log(myObj);
 
 // Można mieć TYLKO JEDEN default
 // https://attacomsian.com/blog/javascript-object-property-shorthand
