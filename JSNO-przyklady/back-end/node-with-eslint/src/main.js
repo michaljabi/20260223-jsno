@@ -14,21 +14,23 @@
  * https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
  * */
 
-
 // Tutaj fajny error zawczasu (no-undef):
-nyGlobalProblem = null;
-
+// const nyGlobalProblem = null;
 
 // Kolejny problem (prefer-const):
-let ex = 2;
-console.log(ex + 39)
+const ex = 2;
+console.log(ex + 39);
 
 // Pozostawienie linii poniżej groziłoby zatrzymaniem programu:
 debugger;
 
 const y = 20;
+console.log(y);
 
 // (no-unused-vars)
-function addTwoNumbers(a, y) { // warning, (no-shadow) dla "y"
-	return a + y;
+function addTwoNumbers(a, z) {
+  // warning, (no-shadow) dla "y"
+  return a + z;
 }
+
+console.log(addTwoNumbers(2, 3));
