@@ -9,6 +9,16 @@ export const server = createServer(async (req, res) => {
     if (req.url === "/guests" && req.method === "GET") {
       res.statusCode = 200;
       data = await questInMemoryDb.getAll();
+    } else if (req.url === "/guests" && req.method === "POST") {
+      console.log("MY BODY IS", req.body);
+      let body = '';
+      // TODO: naprawić w `express.js`
+      req.on("data", (chunk) => {
+        // console.warn("CHUNK", chunk.toString());
+        body += chunk.toString();
+      });
+      res.statusCode = 200;
+      data = await questInMemoryDb.getAll();
     } else {
       res.statusCode = 404;
       data = {
