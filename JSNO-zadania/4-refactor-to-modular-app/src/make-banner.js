@@ -6,6 +6,10 @@ const BORDER_DECORATOR = '*';
 // Named params symlation:
 // export function makeBanner(config = {}) {
 //   const { word = "", decorateWith = BORDER_DECORATOR } = config;
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring
+// destrukturyzacja obiektu.
+// można też destrukturyzować array!
+// najsłynniejszy przykład: https://react.dev/reference/react/useState
 export function makeBanner({
   word = '',
   decorateWith = BORDER_DECORATOR
@@ -23,9 +27,19 @@ export function sentenceToBanners(sentence = '') {
   }
 }
 
-console.log(makeBanner({ word: 'HELLO' }));
-console.log(makeBanner({ word: 'HELLO', decorateWith: '%' }));
-console.log(makeBanner({}));
-console.log(makeBanner({ decorateWith: '$' }));
+// const myObj = { BORDER_DECORATOR: BORDER_DECORATOR, makeBanner: makeBanner };
+// Object property shorthand (to samo co wyżej):
+// https://attacomsian.com/blog/javascript-object-property-shorthand
+const myObj = { BORDER_DECORATOR, makeBanner };
+console.log(myObj);
 
-/// console.log(makeBanner(undefined, "-"));
+// Można mieć TYLKO JEDEN default
+// https://attacomsian.com/blog/javascript-object-property-shorthand
+// export default {
+//   a: BORDER_DECORATOR,
+//   LR_PADDING,
+//   makeBanner,
+//   sentenceToBanners
+// };
+export default BORDER_DECORATOR;
+
