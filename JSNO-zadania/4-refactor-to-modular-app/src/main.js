@@ -1,1 +1,1 @@
-import "./make-banner.js";
+import './make-banner.js';
