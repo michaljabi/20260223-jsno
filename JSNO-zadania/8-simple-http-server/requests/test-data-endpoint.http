@@ -2,7 +2,18 @@
 # W uruchomieniu tych plików pomoże Ci rozszerzenie "REST Client" w Visual Studio Code.
 
 ### Sprawdzanie działania endpointu /data
-GET http://localhost:3035/data
+GET http://localhost:3035/guests
+
+### Sprawdzanie działania dla jednego gościa
+GET http://localhost:3035/guests/1
+
+### Sprawdzanie działania dla jednego gościa
+POST http://localhost:3035/guests
+Content-Type: application/json
+
+{
+    "name": "Mój gość"
+}
 
 
 ### Sprawdzanie działania nieistniejącego endpointu

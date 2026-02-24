@@ -1,7 +1,8 @@
 # Zadanie 8
 
 > Wykonaj serwer, który będzie uruchamiał się na porcie zależnym od zmiennej środowiskowej `PORT` z pliku [.env](./.env).  
-> Powinien on prezentować zawartość danych z pliku [data.json](./src/data.json) na ścieżce `/data`.  
+
+> Powinien on reprezentować wszystkich gości na liście w endpoince `/guests`  
 
 
 Po wystawieniu serwera użyj pliku: 
