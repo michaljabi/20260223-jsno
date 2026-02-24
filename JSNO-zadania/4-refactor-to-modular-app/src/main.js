@@ -1,28 +1,7 @@
-import { makeBanner, sentenceToBanners } from './make-banner.js';
-
-import { createInterface } from 'node:readline/promises';
-import { stdin, stdout, exit } from 'node:process';
-
-const rl = createInterface({ input: stdin, output: stdout });
+import { makeBanner } from './make-banner.js';
+import { app } from './app.js';
 
 console.log(makeBanner({ word: 'WITAJ W GENERATORZE BANNERÓW [!]' }));
-
-async function app() {
-  const sentence = await rl.question(
-    'Podaj zdanie jakie chcesz zamienić w banner: '
-  );
-  sentenceToBanners(sentence);
-  const decistion =
-    await rl.question(`Co robimy dalej - wpisz odpowiednią literę:
-[k]oniec
-[n]astępny banner
-`);
-  if (decistion === 'n') {
-    // powtórz...
-    return app();
-  }
-  rl.close();
-}
 
 try {
   await app();
