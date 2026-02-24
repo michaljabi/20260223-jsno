@@ -21,7 +21,7 @@ Po wystawieniu serwera użyj pliku:
 Pomocna dłoń:
 
 - [http.createServer](https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener)
-- [node --env-file](https://nodejs.org/api/cli.html#--env-fileconfig)
+- [node --env-file](https://nodejs.org/docs/latest-v24.x/api/cli.html#--env-filefile)
 - [node env](https://nodejs.org/api/process.html#process_process_env)
 - [HTTP status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 - [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)

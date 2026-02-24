@@ -1,0 +1,17 @@
+{
+  "name": "8-simple-http-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prod": "node --env-file=.env ./src/main.js",
+    "start": "nodemon --env-file=.env ./src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
