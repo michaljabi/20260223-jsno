@@ -26,11 +26,15 @@ app.use((req, res, next) => {
 
 // Global catch-all error
 app.use((err, req, res, next) => {
-  const timeOfError = new Intl.DateTimeFormat({ timeStyle: "full" }).format(
-    err.timestamp ?? new Date(),
-  );
+  const timeOfError = new Intl.DateTimeFormat(
+    Intl.DateTimeFormat().resolvedOptions().locale, // aktualne `locale` serwera jc. (można też undefined)
+    {
+      timeStyle: "medium",
+      dateStyle: "short",
+    },
+  ).format(err.timestamp ?? new Date());
 
-  console.error(timeOfError, err.stack);
+  console.error(timeOfError, "| ", err.stack);
   res.status(err?.status ?? 500).json({
     error: err?.constructor?.name,
     message: err?.message ?? "Unknown Error",
