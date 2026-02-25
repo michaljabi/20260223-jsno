@@ -4,5 +4,23 @@ GET http://localhost:{{$dotenv PORT}}/guests
 #Authorization: Barer xyz712537561
 
 
+### Get all guests invited
+GET http://localhost:{{$dotenv PORT}}/guests?status=invited
+
+### Get all guests confirmed
+GET http://localhost:{{$dotenv PORT}}/guests?status=confirmed
+
+### Get single guest
+
+GET http://localhost:{{$dotenv PORT}}/guests/1
+
+### Get single guest id(2)
+
+GET http://localhost:{{$dotenv PORT}}/guests/2
+
+### Get single - handle 404 Error
+
+GET http://localhost:{{$dotenv PORT}}/guests/222
+
 ### Check 404
 POST http://localhost:{{$dotenv PORT}}/non-existent
