@@ -17,3 +17,8 @@
 4. Serwer przygotuj w oparciu o bibliotekę `express`
 5. Wystaw endpoint `/guests` i zwracaj tablicę gości
 6. Przetestuj w oparciu o plik `.http`
+
+## [9.2] Global error handler
+
+1. Zrób handler wszystkich errorów (catch-all) jako `res.json` - przygotuj odpowiedni kod `http` błędu
+2. Skorzystaj z doc: [writing-error-handlers](https://expressjs.com/en/guide/error-handling.html#writing-error-handlers)
