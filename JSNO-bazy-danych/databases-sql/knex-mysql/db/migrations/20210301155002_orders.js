@@ -9,6 +9,8 @@ export function up(knex) {
 		table.integer('user_id').unsigned().notNullable()
 		table.foreign('user_id').references('users.id').onDelete('CASCADE')
 
+		table.text('comment')
+
 		table.timestamps(false, true)
 	})
 }

@@ -1,4 +1,5 @@
 import { Model } from 'objection';
+import { User } from './User.js'
 
 export class Order extends Model {
 	static get tableName() {
@@ -6,8 +7,6 @@ export class Order extends Model {
 	}
 
 	static get relationMappings() {
-		const User = require('./User');
-
 		return {
 			user: {
 				relation: Model.BelongsToOneRelation,

@@ -9,6 +9,7 @@
     "orders:solution": "node src/get-user-orders/the-orders-solution.js",
     "knex:migrate:make": "knex migrate:make",
     "knex:migrate:latest": "knex migrate:latest",
+    "knex:migrate:status": "knex migrate:status",
     "knex:seed:make": "knex seed:make",
     "knex:seed:run": "knex seed:run",
     "knex:rollback": "knex migrate:rollback",
