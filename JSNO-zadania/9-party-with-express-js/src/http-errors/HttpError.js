@@ -1,3 +1,5 @@
+
+// Można skorzystać z gotowca, sprawdź: https://www.npmjs.com/package/http-errors
 export default class HttpError extends Error {
   constructor(message, status = 500) {
     super(message);
