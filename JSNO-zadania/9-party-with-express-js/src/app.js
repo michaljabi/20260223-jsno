@@ -1,52 +1,34 @@
 import express from "express";
-import { questInMemoryDb } from './db/quest-in-memory-db.js'
 import HttpError from "./http-errors/HttpError.js";
+import { guestsController } from "./guests/guests.controller.js";
+import { playgroundsController } from "./playgrounds/playgrounds.controller.js";
 
 export const app = express();
 
-app.get("/", (req, res) => {
-  const helloOnServer = "Witaj na serwerze";
-  res.send(`
-    <!DOCTYPE html>
-    <html lang="pl">
-        <head></head>
-        <body>
-            <h1 style="color: red">${helloOnServer}</h1>
-        </body>
-    </html>
-  `);
+app.use(playgroundsController);
+app.use("/guests", guestsController);
+
+// ścieżki nie odnalezione `404`
+app.use((req, res, next) => {
+  // res.status(404).json({
+  //   message: "Path not found!",
+  //   url: req.url,
+  //   method: req.method,
+  // });
+  // const myError = new Error('Path not found!')
+  // myError.status = 404;
+  // throw myError
+  // throw new HttpError('Path not found!', 404);
+  throw HttpError.make404PathNotFound();
 });
 
-app.get("/guests", async (req, res) => {
-
-  const { status } = req.query;
-  if(status) {
-    return res.json(await questInMemoryDb.getByStatus(status))
-  } 
-  res.json(await questInMemoryDb.getAll())
-});
-
-app.get("/guests/:id", async (req, res) => {
-   const { id } = req.params;
-   res.json(await questInMemoryDb.getById(Number(id)))
-});
-
-
-app.get("/test", (req, res) => {
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing
-  const authorization = req.header("authorization") ?? '';
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring
-  const [, token = ''] = authorization.split(' ')
-
-  res.json({
-    authIs: authorization,
-    tokenIs: token
-  });
-  //res.json([]);
-});
-
-
-app.get("/error", (req, res) => {
-  
-  throw new HttpError('Oh no!')
+// Global catch-all error
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(err?.status ?? 500).json({
+    error: err?.constructor?.name,
+    message: err?.message ?? 'Unknown Error',
+    method: req.method,
+    url: req.url
+  })
 })
