@@ -43,3 +43,10 @@ guestsController.get('', (req, res) => {})
 app.use('/guests', guestsController)
 
 ```
+
+## [9.4] Obsługa błędu `404` dla `/:uuid` gościa
+
+1. Dodaj odpowiedni błąd jeśli nie można odnaleźć użytkownika - zwracając `404` Not Found error
+2. Zrefaktoryzuj obsługę użytkowników na `:uuid` zamiast `:id` w params
+3. Daj poprawny message błędu że user o takim `uuid` nie istnieje (po angielsku)
+4. Przetestuj w pliku `.http` poprawność - happy vs sad path
