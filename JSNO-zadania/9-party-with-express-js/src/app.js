@@ -3,9 +3,10 @@ import HttpError from "./http-errors/HttpError.js";
 import { guestsController } from "./guests/guests.controller.js";
 import { playgroundsController } from "./playgrounds/playgrounds.controller.js";
 import { env } from "node:process";
-import { timeStamp } from "node:console";
 
 export const app = express();
+
+// app.use(authorizationMiddleware);
 
 app.use(playgroundsController);
 app.use("/guests", guestsController);

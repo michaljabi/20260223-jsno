@@ -1,5 +1,9 @@
-### Error (catch all) like JSON
+### HTML endpoint - 401 error
 GET http://localhost:{{$dotenv PORT}}/
+
+### HTML endpoint - pass
+GET http://localhost:{{$dotenv PORT}}/
+Authorization: secr3t
 
 ### Check 404
 POST http://localhost:{{$dotenv PORT}}/non-existent
