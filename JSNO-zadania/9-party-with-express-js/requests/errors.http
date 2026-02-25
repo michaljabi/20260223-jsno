@@ -1,0 +1,6 @@
+### Check 404
+POST http://localhost:{{$dotenv PORT}}/non-existent
+
+
+### Error (catch all) like JSON
+GET http://localhost:{{$dotenv PORT}}/error

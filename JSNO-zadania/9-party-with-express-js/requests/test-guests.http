@@ -22,5 +22,3 @@ GET http://localhost:{{$dotenv PORT}}/guests/2
 
 GET http://localhost:{{$dotenv PORT}}/guests/222
 
-### Check 404
-POST http://localhost:{{$dotenv PORT}}/non-existent

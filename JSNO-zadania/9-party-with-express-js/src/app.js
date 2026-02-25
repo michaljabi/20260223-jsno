@@ -1,5 +1,6 @@
 import express from "express";
 import { questInMemoryDb } from './db/quest-in-memory-db.js'
+import HttpError from "./http-errors/HttpError.js";
 
 export const app = express();
 
@@ -47,5 +48,5 @@ app.get("/test", (req, res) => {
 
 app.get("/error", (req, res) => {
   
-  throw new Error('Oh no!')
+  throw new HttpError('Oh no!')
 })
