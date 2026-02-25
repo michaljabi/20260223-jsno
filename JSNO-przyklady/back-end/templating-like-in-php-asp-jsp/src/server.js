@@ -1,20 +1,8 @@
-import app from './app.js'
+import app from "./app.js";
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4004;
 
 app.listen(PORT, () => {
-    console.log(`Nasłuchuję na porcie: ${PORT} !`);
-    console.log(`http://localhost:${PORT} !`);
+  console.log(`Nasłuchuję na porcie: ${PORT} !`);
+  console.log(`http://localhost:${PORT} !`);
 });
-
-
-
-
-
-
-
-
-
-
-
-

@@ -6,11 +6,10 @@
   "type": "module",
   "scripts": {
     "start:prod": "node src/server.js",
-    "start": "nodemon -e js,json,hbs src/server.js"
+    "start": "nodemon -e js,json,ejs src/server.js"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
-    "@types/express-handlebars": "^6.0.2",
     "@types/express-session": "^1.18.2",
     "express-session": "^1.18.1",
     "nodemon": "^3.1.10"
