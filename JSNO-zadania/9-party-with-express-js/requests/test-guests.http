@@ -22,3 +22,12 @@ GET http://localhost:{{$dotenv PORT}}/guests/123e4567-e89b-12d3-a456-42661417400
 
 GET http://localhost:{{$dotenv PORT}}/guests/222
 
+### Add one Guest
+
+POST http://localhost:{{$dotenv PORT}}/guests
+Content-Type: application/json
+
+{
+   "name": "Jan",
+   "lastName": "Kowalski"
+}

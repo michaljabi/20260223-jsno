@@ -29,11 +29,9 @@
 2. Wykorzystaj [routing](https://expressjs.com/en/guide/routing.html#express-router) z `express` w następujący sposób:
 
 ```javascript
-
 export const guestsController = express.Router();
 
-guestsController.get('', (req, res) => {})
-
+guestsController.get("", (req, res) => {});
 ```
 
 3. W pliku `app.js`:
@@ -54,6 +52,11 @@ app.use('/guests', guestsController)
 ## [9.5] Wystawienie serwera na produkcję
 
 1. Zainstaluj globalnie `pm2` komendą `npm i -g pm2`, możesz zapisać sobie to jako skrypt - żeby zapamiętać, lub donstaluj również jako `devDependency`
-2. Przygotuj plik `ecosystem.config.js` (Configuration File) na wzór doc: [process-management](https://pm2.keymetrics.io/docs/usage/process-management) ; który uruchomi kod `src/main.js` 
+2. Przygotuj plik `ecosystem.config.js` (Configuration File) na wzór doc: [process-management](https://pm2.keymetrics.io/docs/usage/process-management) ; który uruchomi kod `src/main.js`
 3. Przygotuj skrypt: `prod` jako `pm2 start ecosystem.config.js`
 4. Uruchom skrypt i sprawdź działanie
+
+----
+
+> Kompleksowe rozwiązanie (ekosystem + out of the box wiele rzeczy +validacja +cors etc.)  
+> Inspirowane Angularem ! [NestJS](https://nestjs.com/)

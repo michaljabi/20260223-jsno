@@ -7,6 +7,9 @@ import { env } from "node:process";
 export const app = express();
 
 // app.use(authorizationMiddleware);
+// żeby `body` działało:
+// https://expressjs.com/en/5x/api.html#req.body
+app.use(express.json());
 
 app.use(playgroundsController);
 app.use("/guests", guestsController);
