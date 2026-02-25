@@ -50,3 +50,10 @@ app.use('/guests', guestsController)
 2. Zrefaktoryzuj obsługę użytkowników na `:uuid` zamiast `:id` w params
 3. Daj poprawny message błędu że user o takim `uuid` nie istnieje (po angielsku)
 4. Przetestuj w pliku `.http` poprawność - happy vs sad path
+
+## [9.5] Wystawienie serwera na produkcję
+
+1. Zainstaluj globalnie `pm2` komendą `npm i -g pm2`, możesz zapisać sobie to jako skrypt - żeby zapamiętać, lub donstaluj również jako `devDependency`
+2. Przygotuj plik `ecosystem.config.js` (Configuration File) na wzór doc: [process-management](https://pm2.keymetrics.io/docs/usage/process-management) ; który uruchomi kod `src/main.js` 
+3. Przygotuj skrypt: `prod` jako `pm2 start ecosystem.config.js`
+4. Uruchom skrypt i sprawdź działanie
