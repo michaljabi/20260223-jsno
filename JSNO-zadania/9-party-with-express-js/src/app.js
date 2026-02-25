@@ -2,6 +2,8 @@ import express from "express";
 import HttpError from "./http-errors/HttpError.js";
 import { guestsController } from "./guests/guests.controller.js";
 import { playgroundsController } from "./playgrounds/playgrounds.controller.js";
+import { env } from "node:process";
+import { timeStamp } from "node:console";
 
 export const app = express();
 
@@ -24,11 +26,19 @@ app.use((req, res, next) => {
 
 // Global catch-all error
 app.use((err, req, res, next) => {
-  console.error(err.stack)
+  const timeOfError = new Intl.DateTimeFormat({ timeStyle: "full" }).format(
+    err.timestamp ?? new Date(),
+  );
+
+  console.error(timeOfError, err.stack);
   res.status(err?.status ?? 500).json({
     error: err?.constructor?.name,
-    message: err?.message ?? 'Unknown Error',
+    message: err?.message ?? "Unknown Error",
     method: req.method,
-    url: req.url
-  })
-})
+    url: req.url,
+    timeStamp: err?.timestamp,
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+    ...(env.NODE_ENV === "development" ? { stack: err.stack.split("\n") } : {}),
+  });
+});

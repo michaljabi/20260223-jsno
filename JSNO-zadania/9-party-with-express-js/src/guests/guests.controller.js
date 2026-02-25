@@ -12,7 +12,7 @@ guestsController.get("", async (req, res) => {
   res.json(await questInMemoryDb.getAll());
 });
 
-guestsController.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  res.json(await questInMemoryDb.getById(Number(id)));
+guestsController.get("/:uuid", async (req, res) => {
+  const { uuid } = req.params;
+  res.json(await questInMemoryDb.getByUuid(uuid));
 });

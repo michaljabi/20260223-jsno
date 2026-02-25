@@ -10,13 +10,13 @@ GET http://localhost:{{$dotenv PORT}}/guests?status=invited
 ### Get all guests confirmed
 GET http://localhost:{{$dotenv PORT}}/guests?status=confirmed
 
-### Get single guest
+### Get single guest by uuid
 
-GET http://localhost:{{$dotenv PORT}}/guests/1
+GET http://localhost:{{$dotenv PORT}}/guests/123e4567-e89b-12d3-a456-426614174000
 
-### Get single guest id(2)
+### Get single guest uuid(123e4567-e89b-12d3-a456-426614174001)
 
-GET http://localhost:{{$dotenv PORT}}/guests/2
+GET http://localhost:{{$dotenv PORT}}/guests/123e4567-e89b-12d3-a456-426614174001
 
 ### Get single - handle 404 Error
 

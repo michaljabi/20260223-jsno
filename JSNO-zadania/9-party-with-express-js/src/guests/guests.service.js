@@ -1,3 +1,5 @@
+import HttpError from "../http-errors/HttpError.js"
+
 const guests = [
     {
         id: 1,
@@ -32,6 +34,13 @@ export const questInMemoryDb = {
     },
     async getById(id) {
         return guests.find(guest => guest.id === id)
+    },
+    async getByUuid(uuid = '') {
+        const guest = guests.find(guest => guest.uuid === uuid)
+        if(!guest) {
+            throw new HttpError(`Guest with uuid: ${uuid} - Not found`, 404)
+        }
+        return guest;
     },
     async getByStatus(status) {
         return guests.filter(guest => guest.status === status)
