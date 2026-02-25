@@ -22,3 +22,24 @@
 
 1. Zrób handler wszystkich errorów (catch-all) jako `res.json` - przygotuj odpowiedni kod `http` błędu
 2. Skorzystaj z doc: [writing-error-handlers](https://expressjs.com/en/guide/error-handling.html#writing-error-handlers)
+
+## [9.3] Osobny routing dla `/guests`
+
+1. Przygotuj osobny folder + plik dla `guests/guests.controller.js` - to będzie zestaw praktyk, którym będziemy się posługiwać aby osiągnąć na serwerze tzw. `layered architecture` (`controller` -> `service` -> `repository/ORM/DB`)
+2. Wykorzystaj [routing](https://expressjs.com/en/guide/routing.html#express-router) z `express` w następujący sposób:
+
+```javascript
+
+export const guestsController = express.Router();
+
+guestsController.get('', (req, res) => {})
+
+```
+
+3. W pliku `app.js`:
+
+```JavaScript
+
+app.use('/guests', guestsController)
+
+```
