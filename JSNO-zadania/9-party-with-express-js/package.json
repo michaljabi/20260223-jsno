@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "env-cmd nodemon ./src/main.js",
-    "start:prod": "env-cmd node ./src/main.js"
+    "start:prod": "env-cmd node ./src/main.js",
+    "i:pm2:global": "npm i -g pm2",
+    "preview":"env-cmd pm2 start ecosystem.config.cjs",
+    "prod":"npm run preview -- --env=production"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +16,8 @@
   "type": "module",
   "devDependencies": {
     "env-cmd": "^11.0.0",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "pm2": "^6.0.14"
   },
   "dependencies": {
     "express": "^5.2.1"
