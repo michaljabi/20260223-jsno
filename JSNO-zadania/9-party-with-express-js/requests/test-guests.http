@@ -1,0 +1,8 @@
+### Get all guests
+
+GET http://localhost:{{$dotenv PORT}}/guests
+#Authorization: Barer xyz712537561
+
+
+### Check 404
+POST http://localhost:{{$dotenv PORT}}/non-existent
